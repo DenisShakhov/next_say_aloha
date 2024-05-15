@@ -1,33 +1,207 @@
+@font-face {
+  font-family: "RG-StandardBold";
+  src: url("/fonts/RG-StandardBold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "RG-StandardSemibold";
+  src: url("/fonts/RG-StandardSemibold.ttf") format("truetype");
+}
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+.select-css {
+  -webkit-appearance: none; /* Для Chrome, Safari, и новых версий Opera */
+  -moz-appearance: none; /* Для Firefox */
+  appearance: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+body,
+html {
+  background-color: #f4f7f8;
+  margin: 0;
+  padding: 0;
+}
+.scroll-changed::-webkit-scrollbar {
+  width: 20px;
+  height: 10px;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
+.scroll-changed::-webkit-scrollbar-track {
+  background: none;
+}
+
+.scroll-changed::-webkit-scrollbar-thumb {
+  background-color: #0083bb; /* цвет плашки */
+  border-radius: 100px;
+}
+.bg_page_1_card_1 {
   background: linear-gradient(
       to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+      rgba(1, 130, 190, 0) 50%,
+      rgba(0, 131, 187, 0.7) 70%
+    ),
+    url("/img/1_page.png") center no-repeat;
+  background-size: contain;
+}
+h2,
+h3 {
+  font-family: "RG-StandardSemibold", sans-serif;
+  line-height: 100%;
+}
+h1 {
+  font-family: "RG-StandardBold", sans-serif;
+  line-height: 110%;
+}
+.l-140 {
+  line-height: 140%;
+}
+.l-100 {
+  line-height: 100%;
+}
+.prev,
+.next {
+  position: absolute;
+
+  transform: translateY(-50%);
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+.absolute_custom {
+  position: absolute;
+  left: 3rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: white;
+  z-index: 3; /* Текст над градиентом */
+}
+.image_slide_for_bg {
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(1, 130, 190, 0) 0%,
+    rgba(1, 101, 147, 0.2) 40%,
+    rgba(0, 71, 102, 0.8) 65%
+  );
+}
+.gradient-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(1, 130, 190, 0) 0%,
+    rgba(1, 101, 147, 0.2) 40%,
+    rgba(0, 71, 102, 0.8) 65%
+  );
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+.container_phone_class {
+  /* Стили для контейнера */
+  border: none !important;
+  box-shadow: none !important;
+  background: none;
+}
+
+.input_phone_class {
+  /* Убираем фон у поля ввода */
+  background: transparent !important;
+
+  /* Убираем границу, если это необходимо */
+  border: none !important;
+  padding-left: 50px !important;
+  /* Убираем тень, если это необходимо */
+  box-shadow: none !important;
+}
+.flag-dropdown {
+  border: none !important;
+}
+.button_phone_class {
+  /* Стили для кнопки выпадающего списка */
+
+  box-shadow: none !important;
+  padding-left: 10px !important;
+  background: none;
+  border-radius: 30px !important;
+}
+
+.search_phone_class {
+  /* Стили для поля поиска в выпадающем списке */
+  border: none !important;
+  box-shadow: none !important;
+
+  background: none;
+}
+.swiper-pagination2 {
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  text-align: center; /* Центрирование точек */
+}
+
+.prev_2,
+.next_2 {
+  position: absolute;
+  transform: translateY(-50%);
+}
+
+@media (max-width: 768px) {
+  .prev_2,
+  .next_2 {
+    width: 50px; /* Larger buttons for larger screens */
+    height: 50px; /* Larger buttons for larger screens */
   }
+}
+.custom-list {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.custom-list li {
+  position: relative;
+  padding-left: 20px; /* Adjust padding to fit your bullet size */
+}
+
+.custom-list li::before {
+  content: "•"; /* The bullet symbol */
+  position: absolute;
+  left: 0;
+  /* color: #0083bb; The color of the bullet point */
+  font-size: 1.2em; /* Adjust the size if needed */
+}
+input[type="checkbox"].custom-checkbox {
+  appearance: none;
+  background-color: #fff;
+  border: 2px solid #f69e18;
+  border-radius: 4px;
+  width: 20px;
+  height: 20px;
+  position: relative;
+  cursor: pointer;
+}
+
+input[type="checkbox"].custom-checkbox:checked {
+  background-color: #f69e18;
+  border-color: #f69e18;
+}
+
+input[type="checkbox"].custom-checkbox:checked::before {
+  content: "\2714";
+  color: white;
+  font-weight: normal;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 14px;
+}
+
+input[type="checkbox"].custom-checkbox:focus {
+  outline: none;
 }
