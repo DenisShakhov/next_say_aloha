@@ -35,7 +35,7 @@ export default function Navig() {
 
           <div
             id="dropdown_excursion_trigger"
-            className="hidden xl:flex mt-2 bg-white px-11 py-4 ml-5 rounded-3xl text-[14px] xl:mt-0 space-x-2"
+            className="hidden mr-auto xl:flex mt-2 bg-white px-11 py-4 ml-5 rounded-3xl text-[14px] xl:mt-0 space-x-2"
           >
             <div className="relative text-blue-text">
               <span
@@ -45,20 +45,29 @@ export default function Navig() {
               >
                 Экскурсии
               </span>
-              {isDropdownVisible && (
+
+              {/* {isDropdownVisible && (
                 <div className="absolute dropdown-content top-[35px] gap-y-[10px] text-[14px] font-medium text-blue-text -left-[44px] pt-[30px] pl-[40px] bg-white rounded-3xl w-[200px] h-[137px] z-[3000] flex-col items-start justify-start">
                   <div className="cursor-pointer">Все экскурсии</div>
-                  <Link href={"/group"}>
-                    <div className="cursor-pointer">Групповые</div>
-                  </Link>
                   <Link href={"/individual"}>
                     <div className="cursor-pointer">Индивидуальные</div>
                   </Link>
+                  <Link href={"/group"}>
+                    <div className="cursor-pointer">Групповые</div>
+                  </Link>
                 </div>
-              )}
+              )} */}
             </div>
 
             <img src="/img/dot.svg" alt="dot" />
+            <Link href={"/group"}>
+              <div className="cursor-pointer">Групповые</div>
+            </Link>
+            <img src="/img/dot.svg" alt="dot" />
+            <Link href={"/individual"}>
+              <div className="cursor-pointer">Индивидуальные</div>
+            </Link>
+            {/* <img src="/img/dot.svg" alt="dot" />
             <a href="#" className="text-blue-text">
               Рыбалка
             </a>
@@ -73,7 +82,7 @@ export default function Navig() {
             <img src="/img/dot.svg" alt="dot" />
             <a href="#" className="text-blue-text">
               О компании
-            </a>
+            </a> */}
           </div>
           <div className="w-fit gap-x-1 mr-8 flex items-center justify-between">
             <button
