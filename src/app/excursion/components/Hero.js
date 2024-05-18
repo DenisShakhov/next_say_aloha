@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import SliderWithThumbnails from "./Slider_Hero";
-
+import Image from "next/image";
 const Hero = ({
   title,
   time,
@@ -30,7 +30,7 @@ const Hero = ({
           {time && (
             <div className="mt-[30px] flex flex-col md:text-[16px] items-start justify-start text-blue-text">
               <div className="flex w-fit items-start justify-start gap-x-2">
-                <img src="/img/clock.svg" className="w-[24px] h-[24px]" />
+                <Image width={24} height={24} src="/img/clock.svg" />
                 <div className="text-[16px] mr-auto font-bold">
                   Время маршрута:
                 </div>
@@ -40,7 +40,7 @@ const Hero = ({
           )}
           <div className="mt-[20px] flex flex-col text-[16px] items-start justify-start text-blue-text">
             <div className="flex w-fit items-start justify-start gap-x-2">
-              <img src="/img/ship_3.svg" className="w-[24px] h-[24px]" />
+              <Image width={24} height={24} src="/img/ship_3.svg" />
               <div className="text-[16px] mr-auto font-bold">Транспорт:</div>
             </div>
             <div className="mt-[10px] l-140 flex flex-col items-start justify-start text-blue-text">
@@ -55,7 +55,7 @@ const Hero = ({
           </div>
           <div className="mt-[20px] flex flex-col items-start justify-start text-blue-text">
             <div className="flex w-fit items-start justify-start gap-x-2">
-              <img src="/img/euro.svg" className="w-[24px] h-[24px]" />
+              <Image width={24} height={24} src="/img/euro.svg" />
               <div className="text-[16px] mr-auto font-bold">
                 Стоимость экскурсии:
               </div>

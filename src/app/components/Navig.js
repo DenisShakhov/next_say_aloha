@@ -13,7 +13,7 @@ export default function Navig() {
 
   return (
     <>
-      <nav className="w-full z-[10000] flex items-center justify-center top-0 h-[86px]">
+      <nav className="w-full hidden z-[10000] md:flex items-center justify-center top-0 h-[86px]">
         <div className="pt-4 xl:flex relative container w-full xl:items-center xl:justify-between">
           <div className="flex justify-between items-center">
             <Link
@@ -45,18 +45,6 @@ export default function Navig() {
               >
                 Экскурсии
               </span>
-
-              {/* {isDropdownVisible && (
-                <div className="absolute dropdown-content top-[35px] gap-y-[10px] text-[14px] font-medium text-blue-text -left-[44px] pt-[30px] pl-[40px] bg-white rounded-3xl w-[200px] h-[137px] z-[3000] flex-col items-start justify-start">
-                  <div className="cursor-pointer">Все экскурсии</div>
-                  <Link href={"/individual"}>
-                    <div className="cursor-pointer">Индивидуальные</div>
-                  </Link>
-                  <Link href={"/group"}>
-                    <div className="cursor-pointer">Групповые</div>
-                  </Link>
-                </div>
-              )} */}
             </div>
 
             <img src="/img/dot.svg" alt="dot" />
