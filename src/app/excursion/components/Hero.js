@@ -62,7 +62,7 @@ const Hero = ({
             </div>
             <div className="ml-[32px] text-[16px] l-140 mt-[10px]">
               {excursionCost.map((item, index) => (
-                <p key={index}>{item}</p>
+                <p key={index}>{item.name}</p>
               ))}
             </div>
           </div>

@@ -22,14 +22,6 @@ export default function Hero() {
 
     {
       backgroundImage: "/img/page_3_card_bg_3.png",
-      tags: ["на лодке", "можно рыбачить"],
-      price: "от 350€",
-      title: "Морской парк «Бэй Терней» и остров Терез",
-      points: "5 точек по маршруту",
-      link: "bey-terner-individual",
-    },
-    {
-      backgroundImage: "/img/page_3_card_bg_3.png",
       tags: ["на лодке", "рыбалка и пикник"],
       price: "от 950€",
       title: "День на рыбалке в Индийском океане и на острове Терез",
