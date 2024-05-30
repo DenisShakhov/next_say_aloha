@@ -2,15 +2,13 @@ import React, { useEffect, useState } from "react";
 import DatePicker, { registerLocale } from "react-datepicker";
 import {
   isWithinInterval,
-  isAfter,
-  isBefore,
   startOfDay,
   endOfDay,
 } from "date-fns";
 import ru from "date-fns/locale/ru";
 import "react-datepicker/dist/react-datepicker.css";
 import useStore from "@/app/store/useStore";
-
+import "./custom-datepicker.css";
 registerLocale("ru", ru);
 
 const DatePickerComponent = () => {
@@ -18,17 +16,23 @@ const DatePickerComponent = () => {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
   const [showPicker, setShowPicker] = useState(false);
+
   useEffect(() => {
     setStartData(startDate);
     setEndData(endDate);
   }, [startDate, endDate]);
-  // Example blocked dates
-  const blockedDates = [new Date(2024, 4, 17), new Date(2024, 4, 18)];
+
+  const blockedDates = [new Date(2024, 5, 30)]; 
 
   const isBlockedDate = (date) => {
-    return blockedDates.some(
-      (blockedDate) => date.toDateString() === blockedDate.toDateString()
-    );
+    return blockedDates.some((blockedDate) => {
+      const isSameDay = date.getDate() === blockedDate.getDate();
+      const isSameMonth = date.getMonth() === blockedDate.getMonth();
+      const isSameYear = date.getFullYear() === blockedDate.getFullYear();
+      console.log(`Comparing ${date} with ${blockedDate}`);
+      console.log(`Day: ${isSameDay}, Month: ${isSameMonth}, Year: ${isSameYear}`);
+      return isSameDay && isSameMonth && isSameYear;
+    });
   };
 
   const togglePicker = () => {
@@ -91,13 +95,13 @@ const DatePickerComponent = () => {
           <div className="flex justify-between mt-2">
             <button
               onClick={() => setShowPicker(false)}
-              className="text-red-500"
+              className="font-bold py-[12px] px-[23px] text-black text-[12px] rounded-md"
             >
               Отмена
             </button>
             <button
               onClick={() => setShowPicker(false)}
-              className="bg-blue-500 text-white rounded px-4 py-1"
+              className="bg-blue font-bold py-[12px] px-[23px] text-white text-[12px] rounded-md"
             >
               Выбрать
             </button>

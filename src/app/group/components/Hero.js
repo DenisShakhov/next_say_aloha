@@ -2,6 +2,8 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import useStore from "@/app/store/useStore";
+import Link from "next/link";
+import toast from "react-hot-toast";
 
 export default function Hero() {
   const [tours, setTours] = useState(null);
@@ -15,7 +17,6 @@ export default function Hero() {
   }, []);
 
   function submit(link) {
-    route.push(`/excursion/${link}`);
   }
 
   return (
@@ -63,12 +64,14 @@ export default function Hero() {
               </div>
             </div>
             <div className="items-center h-[128px] xl:h-full mt-[40px] justify-start flex flex-col xl:flex-row w-full">
+              <Link href={`/excursion/${link}`}>
               <div
                 onClick={() => submit(link)}
                 className="border xl:w-full cursor-pointer w-full bg-white flex items-center font-bold px-[43px] justify-center text-blue-text l-100 rounded-3xl text-center l-140 text-[16px] h-[60px]"
               >
                 Подробнее
               </div>
+              </Link>
             </div>
           </div>
         );

@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import useStore from "../store/useStore";
 export default function Navig() {
   // State to manage the dropdown visibility
   const [isDropdownVisible, setDropdownVisible] = useState(false);
@@ -10,7 +11,7 @@ export default function Navig() {
   const toggleDropdown = () => {
     setDropdownVisible(!isDropdownVisible);
   };
-
+  const { setOpenLogingWindow} = useStore()
   return (
     <>
       <nav className="w-full hidden z-[10000] md:flex items-center justify-center top-0 h-[86px]">
@@ -159,6 +160,7 @@ export default function Navig() {
             <a
               href="#"
               className="text-blue-text bg-white rounded-3xl font-bold text-[16px] px-12 py-3"
+              onClick={()=>{setOpenLogingWindow(true)}}
             >
               Войти
             </a>

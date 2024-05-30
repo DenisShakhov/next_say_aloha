@@ -542,6 +542,9 @@ const optionPrices = {
 };
 
 const useStore = create((set) => ({
+  logging: false,
+  registred: false,
+  openLogingWindow: false,
   name: "",
   lastname: "",
   startDate: null,
@@ -595,6 +598,9 @@ const useStore = create((set) => ({
         totalPrice: state.excursionPrice + optionsPrice,
       };
     }),
+  setRegistred: (registred) => set({ registred }),
+  setLogging: (logging) => set({logging}),
+  setOpenLogingWindow: (openLogingWindow) => set({openLogingWindow}),
   setName: (name) => set({ name }),
   setExcursionTitle: (excursionTitle) => set({ excursionTitle }),
   setLastname: (lastname) => set({ lastname }),

@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Thumbs, Navigation } from "swiper/modules";
 import Image from "next/image";
@@ -10,13 +10,18 @@ import "swiper/css/navigation";
 const SliderPage1 = ({ mainImages }) => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
+  // Ensure mainImages is defined and is an array
+  if (!mainImages || !Array.isArray(mainImages) || mainImages.length === 0) {
+    return <div>No images to display</div>;
+  }
+
   return (
     <main className="w-full xl:w-1/2 flex flex-col">
       <div className="swiper-container relative h-full rounded-3xl gallery-swiper">
         {/* Main Swiper */}
         <Swiper
           modules={[Thumbs, Navigation]}
-          thumbs={{ swiper: thumbsSwiper }}
+          thumbs={{ swiper: thumbsSwiper && thumbsSwiper.destroyed !== true ? thumbsSwiper : null }}
           loop={true}
           navigation={{
             nextEl: ".next_2",
@@ -38,10 +43,10 @@ const SliderPage1 = ({ mainImages }) => {
 
         {/* Navigation Arrows */}
         <button className="prev_2 left-1 xl:left-5 z-50 top-1/2 w-15 h-15">
-          <img src="/img/Arrow left.svg" className="" alt="Previous" />
+          <img src="/img/Arrow left.svg" alt="Previous" />
         </button>
         <button className="next_2 right-1 xl:right-5 z-50 top-1/2 w-15 h-15">
-          <img src="/img/Arrow right.svg" className="" alt="Next" />
+          <img src="/img/Arrow right.svg" alt="Next" />
         </button>
       </div>
 

@@ -1,4 +1,3 @@
-// src/app/excursions/[excursion]/page.js
 "use client";
 import Navig from "@/app/components/Navig";
 import Nav from "../../components/Nav";
@@ -22,8 +21,12 @@ export default function ExcursionPage({ params }) {
   useEffect(() => {
     const getAllExcursions = useStore.getState().getAllExcursions;
     const data = getAllExcursions();
-    setExcursionData(data[params.name] || null);
-    console.log(data);
+
+    if (data && params.name && data[params.name]) {
+      setExcursionData(data[params.name]);
+    } else {
+      setExcursionData(null);
+    }
   }, [params.name]);
 
   if (!excursionData) {
@@ -236,8 +239,8 @@ export default function ExcursionPage({ params }) {
                   />
                   <img
                     src="/img/viber_4.svg"
-                    className="h-[30px] cursor-pointer w-[30px]'
-                    alt='Viber"
+                    className="h-[30px] cursor-pointer w-[30px]"
+                    alt="Viber"
                   />
                   <img
                     src="/img/phone_4.svg"

@@ -39,9 +39,7 @@
 }
 
 .react-datepicker__header {
-  background-color: #fff;
-  border-bottom: none;
-  padding-top: 0;
+
 }
 
 .react-datepicker__current-month {
@@ -52,10 +50,7 @@
 }
 
 .react-datepicker__day-names {
-  display: flex;
-  justify-content: space-around;
-  font-weight: bold;
-  color: #666;
+
 }
 
 .react-datepicker__day-name {

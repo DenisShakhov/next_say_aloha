@@ -23,7 +23,7 @@ function BronForm() {
         className="bg-blue rounded-3xl bg flex flex-col items-start xl:justify-between h-[510px] xl:h-[640px] xl:w-1/2"
         style={{
           background:
-            "url('/img/card_back_5_page.png') no-repeat center center / cover;",
+            "url('/img/card_back_5_page.png') no-repeat center center / cover",
         }}
       >
         <div className="relative mt-5 px-10  w-full">
