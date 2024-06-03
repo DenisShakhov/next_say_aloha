@@ -13,7 +13,7 @@ export default function RootLayout({ children }) {
   const {logging, registred, openLogingWindow} = useStore()
   return (
     <html lang="en">
-      <body className={`${manrope.className} overflow-hidden w-full relative`}>
+      <body className={`${manrope.className} ${openLogingWindow ? 'overflow-hidden' : ''} w-full relative`}>
         <Toaster position="top-right" />
         <div className={`${openLogingWindow ? 'blur-md' : ''}`}>{children}</div>
         {logging && !registred && openLogingWindow ? <LoggingComponent/> : <></>}
